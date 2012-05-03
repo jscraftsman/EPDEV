@@ -1,0 +1,24 @@
+<h1>Workshops</h1>
+<% if @workshops.count > 0 %>
+  <% @workshops.each do |workshop| %>
+    <div class = "workshops">
+      <h2><%= link_to workshop.title, workshop %></h2>
+      <p>Info page: <%= workshop.info_page %></p>
+      <p>Form page: <%= workshop.form_page %></p>
+      <p>Paypal link: <%= workshop.paypal_link %></p>
+      <div class = "workshops_options">
+          <%= link_to "View", workshop, :class => "button" %>
+          <%= link_to "Edit", edit_workshop_path(workshop), :class => "button" %>
+          <%= link_to "Delete", workshop, :confirm => "Are you sure you want to remove '#{workshop.title}'?", :method => "delete", :class => "button" %>
+      </div>
+    </div>
+    <hr />
+  <% end %>
+
+  <div>
+    <%= link_to "Create workshop", new_workshops_path %>
+  </div>
+
+<% else %>
+  <h3>You don't have any worshops yet, click <%= link_to "here", new_workshops_path %> to create one!</h3>
+<% end %>

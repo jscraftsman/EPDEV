@@ -1,0 +1,19 @@
+<h1>Create a new workshop</h1>
+
+<%= form_for @workshop do |f| %>
+  <% @workshop.errors.full_messages.each do |msg| %>
+    <h4><%= msg %></h4>
+  <% end %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/ >
+  <%= f.label "Info Page" %><br />
+  <%= f.text_area :info_page %>
+  <br />
+  <%= f.label "Form Page" %><br />
+  <%= f.text_area :form_page %>
+  <br />
+  <%= f.label :paypal_link %>
+  <%= f.text_field :paypal_link %><br />
+  <%= f.submit "Create" %>
+<% end %>
